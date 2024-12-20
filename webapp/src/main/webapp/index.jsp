@@ -1,60 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas with Santa Claus</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            background-color: #e0f7fa;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            color: #d32f2f;
-            font-size: 3em;
-            margin-top: 50px;
-        }
-        p {
-            font-size: 1.5em;
-            color: #3e2723;
-        }
-        img {
-            max-width: 70%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        .container {
-            padding: 20px;
-        }
-        .footer {
-            background-color: #d32f2f;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+<form action="action_page.php">
+  <div class="container">
+    <h1>CICD For DevOps</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
 
-    <div class="container">
-        <h1>Merry Christmas!</h1>
-        <p>Celebrate the holiday season with joy, love, and warmth!</p>
-        <!-- Replace with your image URL if you prefer -->
-        <img src="https://t4.ftcdn.net/jpg/06/67/02/13/360_F_667021333_m7O75yCdY6mXHUyNRyDMD9YB8FGZWNGK.jpg" alt="Santa Claus">
-        <p>Santa Claus is coming to town!</p>
-    </div>
+    <label for="Name"><b>Enter Name</b></label>
+    <input type="text" placeholder="Enter Full Name" name="Name" id="Name" required>
+    <br>
 
-    <div class="footer">
-        <p>Wishing you a joyful and peaceful Christmas! 🎄</p>
-    </div>
+    <label for="mobile"><b>Enter mobile</b></label>
+    <input type="text" placeholder="Enter moible number" name="mobile" id="mobile" required>
+    <br>
 
-</body>
-</html>
+    <label for="email"><b>Enter Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    <br>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+    <hr>
+    <br>
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+  <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+
+   <h1> God Bless You and your family </h1>
+
+
+</form>
