@@ -1,29 +1,36 @@
 pipeline {
     agent any  
 
-    tools{
+    tools {
         maven 'Maven 3.9.9'
     }
-    stages {    
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
                 echo 'compiling java project...'
-                sh 'mvn compile'
+                bat 'mvn compile'
             }
         }
         stage('Test') {
             steps {
                 echo 'running unit tests...'
-                sh 'mvn clean test'
+                bat 'mvn clean test'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'packaging the application...'
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
     }
+
     post {   
         always {
             echo 'pipeline run finished.'
