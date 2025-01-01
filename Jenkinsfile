@@ -1,5 +1,5 @@
 pipeline {
-    agent any  
+    agent any
 
     tools {
         maven 'Maven 3.9.9'
@@ -11,39 +11,34 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Build') {
             steps {
                 echo 'Compiling Java project...'
                 bat 'mvn compile'
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
                 bat 'mvn clean test'
             }
         }
+
         stage('Deploy') {
             steps {
                 echo 'Packaging the application...'
                 bat 'mvn package'
             }
         }
-        
-        // SonarQube analysis stage
+
         stage('SonarQube analysis') {
             steps {
                 echo 'Running SonarQube analysis...'
-                withSonarQubeEnv('sonarqube-24.12.0.100206') {
-                    bat 'mvn sonar:sonar'
+                withSonarQubeEnv('My SonarQube Server') {
+                    bat 'mvn sonar:sonar -Dsonar.projectName="app" -Dsonar.host.url=http://54.163.4.68:9000/'
                 }
-            }
-        }
-        
-        // SCM Checkout (could be redundant since 'Checkout' already happens earlier)
-        stage('SCM') {
-            steps {
-                git 'https://github.com/Sibo926/cicd'
             }
         }
     }
