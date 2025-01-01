@@ -37,7 +37,7 @@ pipeline {
             steps {
                 echo 'Running SonarQube analysis...'
                 withSonarQubeEnv('sonarqube-24.12.0.100206') {
-                    bat 'mvn sonar:sonar -Dsonar.projectName="app" -Dsonar.host.url=http://54.163.4.68:9000/'
+                    bat 'mvn sonar:sonar -Dsonar.projectName="Project Java 1" -Dsonar.host.url=http://http://54.173.91.106:9000/'
                 }
             }
         }
