@@ -29,13 +29,22 @@ pipeline {
                 bat 'mvn package'
             }
         }
-   node {
-  stage('SCM') {
-    git 'https://github.com/Sibo926/cicd'
-  }
-  stage('SonarQube analysis') {
-    // withSonarQubeEnv(credentialsId: 'f225455e-ea59-40fa-8af7-08176e86507a', installationName: 'My SonarQube Server') { // You can override the credential to be used
-      sh 'mvn sonar:sonar'
+        
+        // SonarQube analysis stage
+        stage('SonarQube analysis') {
+            steps {
+                echo 'Running SonarQube analysis...'
+                withSonarQubeEnv('My SonarQube Server') {
+                    bat 'mvn sonar:sonar'
+                }
+            }
+        }
+        
+        // SCM Checkout (could be redundant since 'Checkout' already happens earlier)
+        stage('SCM') {
+            steps {
+                git 'https://github.com/Sibo926/cicd'
+            }
+        }
     }
-  }
 }
