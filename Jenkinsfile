@@ -34,7 +34,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 echo 'Running SonarQube analysis...'
-                withSonarQubeEnv('My SonarQube Server') {
+                withSonarQubeEnv('SonarQube Scanner 6.2.1.4610') {
                     bat 'mvn sonar:sonar'
                 }
             }
